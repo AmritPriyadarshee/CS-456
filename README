@@ -1,6 +1,7 @@
 
 What is this?
-This is a file exchange server created in Python which takes requests from clients to upload or download files. When the server has matching upload and download connections, it facilitates the exchange concurrently using TCP.
+This is a file exchange server created in Python which takes requests from clients to upload or download files.
+When the server has matching upload and download connections, it facilitates the exchange concurrently using TCP.
  
 E.g.
 Client A uploads file:  stocks.txt
@@ -8,6 +9,8 @@ Client B requests file: weather.txt
 Client C requests file: traffic.txt
 Client D requests file: stocks.txt
 The server will facilitate the transfer between Client A and D, and keep B,C in a waiting queue. 
+Client E uploads file: weather.txt
+The server will facilitate the transfer between Client B and E concurrently with A,D (if it isn't already complete).
 
 
 Basic Idea/Concept:
