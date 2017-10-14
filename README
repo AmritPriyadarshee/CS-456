@@ -1,0 +1,9 @@
+- This program was built and tested on the Ubuntu1604 machine.
+
+All portions of this assignment were completed to specifications listed on the assignment.
+
+Basic Idea/Concept:
+The server is set up and waits for anyone to try and connect to it. Whenever a connection is received (either an upload/download), we see if there is mirrored connection waiting with the same key. If we get an upload, we check our downloads list for an connection with the same key, and vice versa. If there is no match, we add our connection to the appropriate list (i.e. upload list or the download list). We add certain fields of the connection to a structure define by me called key_struct. The information it stores will be required to facilitate the data exchange at a later point. We store the connection object, the key, ip, port, buffer size and wait duration. If the wait duration is not specified, it'll have the preset value of -1. Should we get a match though, we remove the mirrored connection from the list it was previously stored in and create a new thread which facilitates the data exchange. This thread runs the function exchange_data which sets up the connection from the key_struct data structure. The function then grabs data from the uploader, and passes it on to the downloader. At the end of the exchange, the sockets of the uploader and downloader are closed, the thread terminates and we return to the main thread.
+
+In the event of a termination command being received, we simply clear our both our download and upload lists and check every second to see whether or not the other threads are done transfering whatever data they were in the middle of transferring. This way, no new exchanges can occur after receiving the terminate command. We keep track of all the threads we spawn using a counter (everytime a thread is spawned, we increment the counter). When the counter hits 0, all other threads have completed their execution and we then shutdown the server. 
+
