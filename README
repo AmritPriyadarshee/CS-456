@@ -1,7 +1,7 @@
 
 What is this?
 This is a file exchange server created in Python which takes requests from clients to upload or download files. When the server has matching upload and download connections, it facilitates the exchange concurrently using TCP.
-
+ 
 E.g.
 Client A uploads file:  stocks.txt
 Client B requests file: weather.txt
