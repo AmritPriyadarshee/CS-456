@@ -1,11 +1,7 @@
-1. Report which machines your program was built and tested on.
-- The program was built on the linux.student.cs.uwaterloo.ca environment.
-- The receiver was run and tested on on the 'ubuntu1604-006.student.cs.uwaterloo.ca' machine.
-- The sender was run on the same machine, as well as whatever machines SSH-ing into a2priyad@linux.student.cs.waterloo.ca directed me to during the various testing.
 
 2. Also, document which parts of the assignment have or have not been completed.
 - The GBN file transfer works and was tested. The only issue is at times, up to the last 9 packets might not be written to the file.
-- The SR file transfer was partially completed.
+
 
 3. Describe the basic design ideas/justifications for your program(s).
 -The GBN starts sending packets and storing the packets it sends in a window of up to size 10.
@@ -16,6 +12,6 @@
 -At the end, the sender sends and EOT and when the receiver gets it, it shuts down and returns and EOT as well.
 
 
-Simply use the following commands to execute:
+use the following commands to execute:
 ./gbnsender timeout filename
 ./gbnreceiver filename
