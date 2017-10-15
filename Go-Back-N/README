@@ -1,6 +1,6 @@
 This program allows for a file exchange to occur between a client and a server using the Go-Back-N protocol. 
 
-Basic design ideas/justifications for your program(s):
+Basic design ideas:
 -The GBN starts sending packets and storing the packets it sends in a window of up to size 10.
 -It keeps a timer for the lowest packet in the window because that will also be keeping track of the longest duration (since we're sending packets in sequential order)
 -The receiver sends ACK(s) with sequence numbers based on the packet it received and whether it was the expected packet or not
