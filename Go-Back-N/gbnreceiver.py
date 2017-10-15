@@ -57,7 +57,7 @@ def create_socket():
 			sock.sendto(ack_header, (address[0], int(address[1])))
 			print("PKT SEND ACK %d %d" % (packet_length, packet_sequence_num))
 			expected_seq_num+=1
-
+	'''EOT Packet'''
 	if (udp_header[0] == 2):
 		print("PKT RECV EOT %d %d" % (udp_header[1], udp_header[2]))
 		packet_type = 2
