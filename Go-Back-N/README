@@ -1,0 +1,21 @@
+1. Report which machines your program was built and tested on.
+- The program was built on the linux.student.cs.uwaterloo.ca environment.
+- The receiver was run and tested on on the 'ubuntu1604-006.student.cs.uwaterloo.ca' machine.
+- The sender was run on the same machine, as well as whatever machines SSH-ing into a2priyad@linux.student.cs.waterloo.ca directed me to during the various testing.
+
+2. Also, document which parts of the assignment have or have not been completed.
+- The GBN file transfer works and was tested. The only issue is at times, up to the last 9 packets might not be written to the file.
+- The SR file transfer was partially completed.
+
+3. Describe the basic design ideas/justifications for your program(s).
+-The GBN starts sending packets and storing the packets it sends in a window of up to size 10.
+-It keeps a timer for the lowest packet in the window because that will also be keeping track of the longest duration (since we're sending packets in sequential order)
+-The receiver sends ACK(s) with sequence numbers based on the packet it received and whether it was the expected packet or not
+-Should the timer ever expire, then we resend everything in our window from the sender
+-This way, if any packet ever gets lost, the receiver will notify us by not sending an ACK for it, at which point our timer will expire and then we resend the entire window which includes the packet we lost. This way, at the end of the day the receiver will receive all of the packets regardless of whatever packetloss is in place
+-At the end, the sender sends and EOT and when the receiver gets it, it shuts down and returns and EOT as well.
+
+
+Simply use the following commands to execute:
+./gbnsender timeout filename
+./gbnreceiver filename
