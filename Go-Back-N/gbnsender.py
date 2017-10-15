@@ -29,7 +29,7 @@ s.bind(('', 0))
 s.settimeout(timeout)
 while not done or window:
 	'''Go through 500 byte segments and send'''
-	'''While window isn't full and not EOF''' ##TODO: Add EOF CONDITION to while loop
+	'''While window isn't full and not EOF'''
 	if (sequence_num < window_size + base) and (data != ""):
 		data = f.read(500)
 		packet_type = 0
