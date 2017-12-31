@@ -6,7 +6,7 @@ Basic design ideas:
 -The receiver sends ACK(s) with sequence numbers based on the packet it received and whether it was the expected packet or not
 -Should the timer ever expire, then we resend everything in our window from the sender
 -This way, if any packet ever gets lost, the receiver will notify us by not sending an ACK for it, at which point our timer will expire and then we resend the entire window which includes the packet we lost. This way, at the end of the day the receiver will receive all of the packets regardless of whatever packetloss is in place
--At the end, the sender sends and EOT and when the receiver gets it, it shuts down and returns and EOT as well.
+-At the end, the sender sends an EOT and when the receiver gets it, it shuts down and returns and EOT as well.
 
 
 use the following commands to execute:
