@@ -4,7 +4,7 @@ When the server has matching requests for upload and download connections, it fa
 Client A uploads file with key "aaa".
 Client B requests file with key "bbb".
 Client C uploads file with key "ccc".
-Client D requests file with key "bbb".
+Client D uploads file with key "bbb".
 The program beings facilitating the exchange between client B and D.
 Client E requests file with key "aaa".
 The program begins facilitating the exchange between client A and E and concurrently continues with B and D.
