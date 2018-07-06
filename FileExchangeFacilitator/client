@@ -3,17 +3,25 @@ import struct
 import sys
 import socket
 
+global command
+global key
+global filename
+global wait_time
+
+'''Create socket'''
+sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM) #TCP
+
 ip = sys.argv[1]
 port = sys.argv[2]
-global command
 command = sys.argv[3][0]
-global key
 key = '\0'
+filename = ""
+
+
+##Req'd to meet specs
 if ((len(sys.argv[3])) > 1):
 	key = sys.argv[3][1:]
-global filename
-filename = ""
-global wait_time
+
 if ((len(sys.argv)) > 4):
 	filename = sys.argv[4]
 	size = int(sys.argv[5])
@@ -52,8 +60,6 @@ if (filename.isdigit()):
 	f.close()
 	filename = str(filename)
 
-'''Create socket'''
-sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM) #TCP
 
 
 def connect():
